@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jessang, Be My Valentine? 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at top, #ffe6eb, #ff7a9c);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 45px;
+      border-radius: 25px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+      text-align: center;
+      max-width: 420px;
+      position: relative;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    h1 {
+      color: #ff2f6e;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .heart {
+      font-size: 60px;
+      animation: pulse 1.3s infinite;
+      margin: 15px 0;
+    }
+
+    button {
+      background: linear-gradient(135deg, #ff2f6e, #ff85a2);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin: 10px;
+      box-shadow: 0 10px 20px rgba(255,47,110,0.4);
+    }
+
+    button:hover {
+      transform: scale(1.12);
+      box-shadow: 0 15px 30px rgba(255,47,110,0.6);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .sparkle {
+      position: absolute;
+      font-size: 20px;
+      animation: sparkle 3s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes sparkle {
+      from {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Hey Jessang 💕</h1>
+
+    <p>
+      So… funny story.<br>
+      Every time I think about you,<br>
+      my heart forgets how to behave.
+    </p>
+
+    <p>
+      You’re my favorite smile,<br>
+      my favorite laugh,<br>
+      and honestly… my favorite person. 💘
+    </p>
+
+    <div class="heart">❤️</div>
+
+    <p id="question">
+      I’ve been meaning to ask you something important…
+    </p>
+
+    <button onclick="reveal()">Tap gently 💌</button>
+
+    <div id="answer" class="hidden">
+      <h1>Jessang… 🌹</h1>
+      <p>
+        Will you make me the luckiest person<br>
+        and be my Valentine? 💞
+      </p>
+      <button onclick="celebrate()">YES (obviously 😏)</button>
+    </div>
+  </div>
+
+  <script>
+    function reveal() {
+      document.getElementById("question").style.display = "none";
+      document.getElementById("answer").classList.remove("hidden");
+    }
+
+    function celebrate() {
+      for (let i = 0; i < 50; i++) {
+        const sparkle = document.createElement("div");
+        sparkle.classList.add("sparkle");
+        sparkle.textContent = Math.random() > 0.5 ? "✨" : "💖";
+        sparkle.style.left = Math.random() * 100 + "vw";
+        sparkle.style.animationDuration = Math.random() * 2 + 2 + "s";
+        document.body.appendChild(sparkle);
+
+        setTimeout(() => sparkle.remove(), 3000);
+      }
+      alert("Congrats 💘 You just stole my heart forever.");
+    }
+  </script>
+
+</body>
+</html>
